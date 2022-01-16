@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="wrap clearfix">
+            <ul>
+                <li><img src="images/logo.jpg"></li>
+                <li class="denglu">欢迎登录</li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="wrap clearfix">
+            <img src="images/bg.jpg">
+            <div class="log">
+                <div class="content">
+                    <p>登录</p>
+                    <span style="color: #bd2c00" th:text="${ausertip}"/>
+                    <form action="/login" method="post">
+                        <div class=" one clearfix">
+                            <div class="block block1"><img src="images/email.jpg"> </div>
+                            <input type="email" name="email" placeholder="请输入邮箱" class="inp">
+                        </div>
+
+                        <div class="one clearfix">
+                            <div class="block block2"><img src="images/suo.jpg"> </div>
+                            <input type="password" name="password" placeholder="密码" class="inp inp2">
+
+                        </div>
+
+                        <div class="one clearfix">
+                            <input type="text" placeholder="验证码" class="inp inp3">
+                            <div class="number"><img src="images/number.jpg"></div>
+                        </div>
+                              <button type="submit">登录</button>
+                    </form>
+                    <ul class="choice1">
+                        <li>
+                            <input type="checkbox">
+                            <span>自动登录</span>
+                        </li>
+                        <li>
+                            <a href="#">忘记密码?</a>
+                        </li>
+                    </ul>
+                    <ul class="choice2">
+                        <li>
+                            <i class="i1"></i> QQ
+                        </li>
+                        <li>
+                            <i class="i2"></i>微博
+                        </li>
+                        <li>
+                            <i class="i3"></i>微信
+                        </li>
+                        <li>
+                            <a href="/toRegister">立即注册</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+</body>
+
+</html>

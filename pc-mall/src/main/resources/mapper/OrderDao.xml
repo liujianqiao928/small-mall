@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pc.small.mapper.OrderDao">
+    <insert id="addOrder" parameterType="mall.model.Order">
+        insert into ORDERS values (#{id},#{orderid},#{ordermoney},#{create},#{downorder},#{shopid},#{auserid},#{tuserid})
+    </insert>
+    <select id="findByUserId" parameterType="string" resultType="mall.model.Order">
+        select * from ORDERS where TUSERID =#{id}
+    </select>
+</mapper>

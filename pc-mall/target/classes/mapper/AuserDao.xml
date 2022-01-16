@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pc.small.mapper.AuserDao">
+   <select id="getAmoney" parameterType="string" resultType="mall.model.admin.Auser">
+       select AMONEY from AUSER where ID=#{id}
+   </select>
+    <update id="updatemoney">
+        update AUSER set AMONEY=#{money} where ID = #{id}
+    </update>
+</mapper>

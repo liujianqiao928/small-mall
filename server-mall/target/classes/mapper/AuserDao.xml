@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.mall.mapper.AuserDao">
+    <select id="findUserCode" resultType="mall.model.admin.Auser">
+        select  * from AUSER where AEMAIL=#{email}
+    </select>
+
+    <select id="findUserIsUser" resultType="mall.model.admin.Auser">
+        select  * from AUSER where AEMAIL=#{email} and ASTATUS = '1'
+    </select>
+
+
+    <select id="findUser" resultType="mall.model.admin.Auser">
+        select  * from AUSER where AEMAIL=#{email} and APASSWORD=#{password} and ASTATUS = '1'
+    </select>
+</mapper>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.mall.mapper.ShopDao">
+    <select id="findByType" resultType="mall.model.Shop" parameterType="string">
+        select * from SHOP where SHOPTYPE=#{type}
+    </select>
+
+    <select id="findBySelectType" resultType="mall.model.Shop">
+        select * from SHOP
+        <where>
+            <if test="type != null">
+                and SHOPTYPE = #{type}
+            </if>
+            <if test="one != null">
+                and ONEFL = #{one}
+            </if>
+            <if test="two != null">
+                and TWOFL = #{two}
+            </if>
+            <if test="three != null">
+                and THREEFL = #{three}
+            </if>
+        </where>
+    </select>
+    <select id="findById" parameterType="string" resultType="mall.model.Shop">
+
+        select  * from  SHOP where SHOPID=#{id}
+    </select>
+    <select id="findLikeTitle" resultType="string">
+--         select SHOPTITLE from SHOP
+<!--        <where>-->
+
+<!--            <if test="search != null">-->
+<!--                or SHOPTITLE  LIKE '%${search}%'-->
+<!--            </if>-->
+<!--            <if test="type != null">-->
+<!--                or SHOPTYPE in-->
+<!--                <foreach close=")" collection="tid" item="listItem"  index="index" separator="," open="(" >-->
+<!--                #{listItem}-->
+<!--            </foreach>-->
+<!--            </if>-->
+<!--            <if test="one != null">-->
+<!--                or ONEFL in-->
+<!--                <foreach close=")" collection="oid" item="listItem" index="index" separator="," open="(" >-->
+<!--                    #{listItem}-->
+<!--                </foreach>-->
+<!--            </if>-->
+<!--            <if test="two != null">-->
+<!--                or TWOFL in-->
+<!--                <foreach close=")" collection="twid" item="listItem"  index="index" separator="," open="(" >-->
+<!--                    #{listItem}-->
+<!--                </foreach>-->
+<!--            </if>-->
+<!--            <if test="three != null">-->
+<!--                or THREEFL in-->
+<!--                <foreach close=")" collection="thid" item="listItem" open="(" >-->
+<!--                    #{listItem}-->
+<!--                </foreach>-->
+<!--            </if>-->
+<!--        </where>-->
+--         where
+--         SHOPTITLE  LIKE '%${search}%'
+--         or
+--         SHOPTYPE in (select FLID from SHOPTYPE where FLNAME LIKE '%${search}%')
+--         or
+--         ONEFL in (select OID from ONE where ONAME LIKE '%${search}%')
+--         or
+--         TWOFL in (select TID from TWO where TWNAME LIKE '%${search}%')
+--         or
+--         THREEFL in (select TID from THREE where THNAME LIKE '%${search}%')
+
+        select SHOPTITLE from SHOPLIKEVIEW where
+                SHOPTITLE  LIKE '%${search}%'
+                or
+                FLNAME LIKE '%${search}%'
+                or
+               ONAME LIKE '%${search}%'
+                or
+              TWNAME LIKE '%${search}%'
+                or
+               THNAME LIKE '%${search}%'
+
+    </select>
+    <select id="findLikeAll" resultType="string" parameterType="string">
+
+
+        select SHOPID from SHOPLIKEVIEW where
+        SHOPTITLE  LIKE '%${search}%'
+        or
+        FLNAME LIKE '%${search}%'
+        or
+        ONAME LIKE '%${search}%'
+        or
+        TWNAME LIKE '%${search}%'
+        or
+        THNAME LIKE '%${search}%'
+
+
+    </select>
+    <select id="checkshopcount" resultType="integer" parameterType="string">
+        select SHOPCOUNT from SHOP where SHOPID = #{id}
+
+    </select>
+
+    <select id="checkMoney" resultType="string" parameterType="string">
+        select SHOPXPRICE from SHOP where SHOPID =#{id}
+    </select>
+
+    <update id="divshopcount" parameterType="string">
+        update SHOP set SHOPCOUNT = SHOPCOUNT - 1 WHERE SHOPID =#{id}
+    </update>
+    <select id="findAll" resultType="mall.model.Shop">
+        select * from SHOP
+    </select>
+    <insert id="add" parameterType="mall.model.Shop">
+        insert into SHOP values (#{shopid},#{shoptitle},#{simpledesc},
+        #{shopkey},#{shopfl},#{shoptype},#{shopyprice},#{shopxprice}
+        ,#{shopcount},#{shopgg},#{isupjia},#{iscomm},#{shopimg},#{shopdesc}
+        ,#{onefl},#{twofl},#{threefl},#{auserid},#{sellcount},#{create},
+        #{commcount},#{otherimg},#{pertmers},#{isziying},#{shopbaozhuang}
+
+        )
+    </insert>
+</mapper>

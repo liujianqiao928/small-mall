@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pc.small.mapper.ShopCarDao">
+    <select id="findByIds" resultType="string" parameterType="string">
+        select SHOPIDS from SHOPCAR where CARID=#{carid}
+    </select>
+    <update id="UpdataCar" parameterType="string" >
+        update SHOPCAR set SHOPIDS =#{ids} where CARID=#{tid}
+    </update>
+    <update id="UpdataCount" parameterType="string">
+        update SHOPCAR set SHOPCOUNT =SHOPCOUNT + 1 where CARID=#{s}
+    </update>
+</mapper>

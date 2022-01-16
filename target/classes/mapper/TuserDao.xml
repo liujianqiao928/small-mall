@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mall.smallumal.mapper.TuserDao">
+    <select id="findTUserCode" resultType="mall.smallumal.model.Tuser">
+        select  * from TUSER where USEREMAIL=#{email}
+    </select>
+
+    <select id="findTUserIsUser" resultType="mall.smallumal.model.Tuser">
+        select  * from TUSER where USEREMAIL=#{email} and USERSTATUS = '1'
+    </select>
+
+
+    <select id="findTUser" resultType="mall.smallumal.model.Tuser">
+        select  * from TUSER where USEREMAIL=#{email} and USERPASSWORD=#{password} and USERSTATUS = '1'
+    </select>
+
+    <select id="findTUserByName" parameterType="string" resultType="mall.smallumal.model.Tuser">
+        select * from TUSER where USERNAME =#{name}
+    </select>
+    <insert id="addUser" parameterType="mall.smallumal.model.Tuser">
+        insert into TUSER(ID,USERNAME,USEREMAIL,USERPASSWORD,USERLOGO,ISVIP,USERCITY,USERMONEY,USERSTATUS)
+        values (#{id},#{username},#{useremail},#{userpassword},#{userlogo},#{isvip},#{usercity}
+        ,#{usermoney},#{userstatus}
+        )
+    </insert>
+</mapper>

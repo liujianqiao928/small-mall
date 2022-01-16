@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pc.small.mapper.ThreeDao">
+    <select id="findByName" resultType="string" parameterType="string">
+        select TID from THREE where THNAME=#{name}
+    </select>
+    <select id="findLikeName" resultType="string" parameterType="string">
+    select TID from THREE where THNAME LIKE '%${serchtext}%'
+</select>
+</mapper>

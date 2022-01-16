@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
+    <title>登录</title>
+    <!--兼容处理，如果可能，调取ie高版本内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="iconfont/icon.css">
+</head>
+
+<body>
+    <div class="form-box">
+        <i class="iconfont icon-U"></i>
+        <form action="#" enctype="multipart/form-data">
+            <h2>注册</h2>
+       
+            <label for="uname">姓名</label>
+            <input type="text" name="uname" id="uname">
+            <label for="email">邮箱</label>
+            <input type="email" name="email" id="email">
+            <label for="password">密码</label>
+            <input type="password" name="password" id="password">
+            <label for="phone">电话</label>
+            <input type="number" name="phone" id="phone">
+            <label for="idcard">身份证号码</label>
+            <input type="text" name="idcard" id="idcard">
+            <label for="gszz">工商执照</label>
+            <input type="text" name="gszz" id="gszz">
+            <label for="logo">请上传本人头像</label>
+            <input type="file" name="logo" id="logo"/>
+            <input type="submit" value="注册">
+            <p class="toregister">有账号<a href="/admin/tologin">去登录</a></p>
+        </form>
+    </div>
+</body>
+
+</html>
